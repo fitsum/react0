@@ -8,15 +8,18 @@ const MyList = () => {
 
     } )()
   }, [] )
-  const listKeyStyle = { fontVariant: 'none' }
-  const listValueStyle = { fontStyle: 'italic' }
-  const listStyle = { overflow: 'scroll', listStyleType: 'none', paddingInlineStart: '0.5rem' }
+
+  const styles = {
+    forKey: {fontVariant: 'none'},
+    ForValue: {fontStyle: 'italic'},
+    forList: {overflow: 'scroll', listStyleType: 'none', paddingInlineStart: '0.5rem'}
+  }
   const currentWeather = weather.current ?? {}
   const forecast = [ ...Object.entries( currentWeather ) ]
     .filter(entry => !['id'].includes(entry[0]))
     .filter( entry => entry[ 1 ] )
-    .map( item => <li key={item[0]}><span style={listKeyStyle}>{item[ 0 ]}</span> <span style={listValueStyle}>{item[ 1 ]}</span></li> )
-  return ( <ul style={listStyle}>{forecast}</ul> )
+    .map( item => <li key={item[0]}><span style={styles.forKey}>{item[ 0 ]}</span> <span style={styles.forValue}>{item[ 1 ]}</span></li> )
+  return ( <ul style={styles.forList}>{forecast}</ul> )
 }
 
 
