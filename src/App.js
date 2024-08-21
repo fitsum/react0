@@ -1,8 +1,4 @@
-import React, {useEffect, useRef} from 'react';
-/* import ReactDOM from 'react-dom/client'; */
-/* import logo from './logo.svg'; */
-/* import './App.css'; */
-
+import {useEffect, useRef} from 'react';
 
 const MyList = () => {
   const weather = useRef( null )
@@ -17,9 +13,9 @@ const MyList = () => {
   const listStyle = { overflow: 'scroll', listStyleType: 'none', paddingInlineStart: '0.5rem' }
   const currentWeather = weather.current ?? {}
   const forecast = [ ...Object.entries( currentWeather ) ]
+    .filter(entry => !['id'].includes(entry[0]))
     .filter( entry => entry[ 1 ] )
-    .map( item => <li><span style={listKeyStyle}>{item[ 0 ]}</span> <span style={listValueStyle}>{item[ 1 ]}</span></li> )
-  console.log(weather)
+    .map( item => <li key={item[0]}><span style={listKeyStyle}>{item[ 0 ]}</span> <span style={listValueStyle}>{item[ 1 ]}</span></li> )
   return ( <ul style={listStyle}>{forecast}</ul> )
 }
 
@@ -28,8 +24,8 @@ const App = () => {
   const style = { overflow: 'scroll' }
   return (
     <div style={style}>
-      <h1>Welcome to my app</h1>
-      <MyList />
+      <h1>🌦️ Ornot</h1>
+        <MyList/>
     </div>
   )
 }
