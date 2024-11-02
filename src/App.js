@@ -19,7 +19,7 @@ const MyList = () => {
       setForecast(listify(d))
       console.log({d})
     } )()
-  }, [ forecast ] )
+  }, [ ] )
 
   return ( <ul style={styles.forList}>{forecast}</ul> )
 }
