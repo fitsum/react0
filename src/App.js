@@ -17,7 +17,6 @@ const MyList = () => {
     ( async () => {
       const d = await( await fetch('https://dumbservices.com:9994/forecasts/current')).json()
       setForecast(listify(d))
-      console.log({d})
     } )()
   }, [ ] )
 
