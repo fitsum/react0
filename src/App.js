@@ -4,8 +4,7 @@ const MyList = () => {
   const weather = useRef( null )
   useEffect( () => {
     ( async () => {
-      weather.current = ( await ( await fetch( 'https://dumbservices.com:9994/forecasts/current' ) ).json() ).result[ 0 ]
-
+      weather.current = ( await ( await fetch( 'https://dumbservices.com:9994/forecasts/current' ) ).json() )
     } )()
   }, [] )
 
